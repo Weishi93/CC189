@@ -52,5 +52,6 @@ public class P1_2 {
         System.out.println(isPermutation_2("asd", "das"));
         System.out.println(isPermutation_2("asdqwe", "asdzx"));
         System.out.println(isPermutation_2("asd", "asf"));
+        System.out.println((int)Character.MAX_VALUE);
     }
 }
