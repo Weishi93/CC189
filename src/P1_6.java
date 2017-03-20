@@ -2,6 +2,11 @@
  * Created by Wei Shi on 3/19/17.
  */
 public class P1_6 {
+    /**
+     * Compress the string. "aaabbc" -> "a3b2c1"
+     * @param s
+     * @return
+     */
     static String compressString(String s) {
         int count = 0;
         StringBuilder sb = new StringBuilder();
