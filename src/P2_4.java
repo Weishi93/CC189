@@ -2,6 +2,12 @@
  * Created by Wei Shi on 3/20/17.
  */
 public class P2_4 {
+    /**
+     * partition a linked list
+     * @param head
+     * @param pivot
+     * @return
+     */
     static ListNode partitionList_1(ListNode head, int pivot) {
         ListNode lessDummy = new ListNode(-1);
         ListNode moreDummy = new ListNode(-1);
