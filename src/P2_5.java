@@ -1,3 +1,6 @@
+import java.util.List;
+import java.util.Stack;
+
 /**
  * Created by Wei Shi on 3/20/17.
  */
@@ -33,6 +36,39 @@ public class P2_5 {
         return res;
     }
 
+    /**
+     * add two lists by digits
+     * input: 7 -> 1 -> 6 and 5 -> 9 -> 2 is 716 + 592
+     * output: 1308
+     * @param l1
+     * @param l2
+     * @return
+     */
+    static ListNode addLists_2(ListNode l1, ListNode l2) {
+        Stack<Integer> s1 = new Stack<>(), s2 = new Stack<>();
+        ListNode it = l1;
+        while (it != null) {
+            s1.push(it.val);
+            it = it.next;
+        }
+        it = l2;
+        while (it != null) {
+            s2.push(it.val);
+            it = it.next;
+        }
+        ListNode res = new ListNode(0);
+        while (!s1.empty() || !s2.empty()) {
+            int num1 = s1.empty() ? 0 : s1.pop();
+            int num2 = s2.empty() ? 0 : s2.pop();
+            int sum = num1 + num2 + res.val;
+            res.val = sum % 10;
+            ListNode prev = new ListNode(sum / 10);
+            prev.next = res;
+            res = prev;
+        }
+        return res.val == 0 ? res.next : res;
+    }
+
     public static void main(String[] args) {
         ListNode n1 = new ListNode(7);
         ListNode n2 = new ListNode(1);
@@ -44,7 +80,7 @@ public class P2_5 {
         n2.next = n3;
         n4.next = n5;
         n5.next = n6;
-        ListNode res = addLists(n1, n4);
+        ListNode res = addLists_2(n1, n4);
         while (res != null) {
             System.out.println(res.val);
             res = res.next;
