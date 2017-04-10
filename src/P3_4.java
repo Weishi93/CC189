@@ -32,12 +32,16 @@ class MyQueue<T> {
     }
 
     public T poll() {
+        peek();
+        return s2.pop();
+    }
+    public T peek() {
         if (s2.isEmpty()) {
             while (!s1.isEmpty()) {
                 s2.push(s1.pop());
             }
         }
-        return s2.pop();
+        return s2.peek();
     }
 
     public boolean isEmpty() {
